@@ -1,0 +1,2 @@
+C:\Users\avall\Documents\Andrés\Programación\Code\OpenGL\OpenGLLearning\Debug\OpenGLLearning.exe
+C:\Users\avall\Documents\Andrés\Programación\Code\OpenGL\OpenGLLearning\Debug\OpenGLLearning.pdb
