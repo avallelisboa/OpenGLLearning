@@ -75,6 +75,8 @@ void Shaders::Bind() const{
     //Deletes the intermediate shader files
     glDeleteShader(m_VertexShader);
     glDeleteShader(m_FragmentShader);
+    //Binds the shader
+    glUseProgram(m_Shader);
 }
 
 void Shaders::Unbind() const{
@@ -89,6 +91,6 @@ int Shaders::GetUniformLocation(const char* name) const{
     }
 }
 
-void Shaders::SetUniform4f(const char* name, float v0, float v1, float f2, float f3){
+void Shaders::SetUniform4f(const char* name, float v0, float v1, float f2, float f3) const{
     glUniform4f(GetUniformLocation(name), v0, v1, f2, f3);
 }

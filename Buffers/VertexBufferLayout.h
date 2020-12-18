@@ -2,7 +2,6 @@
 
 #include<vector>
 #include<glew.h>
-#include"../Renderer/Render.h"
 
 struct VertexBufferElement {
 	unsigned int count;

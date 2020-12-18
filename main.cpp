@@ -11,10 +11,12 @@
 #include <glew.h>
 #include <glfw3.h>
 
-#include "Shaders/Shaders.h"
 #include "Buffers/VertexBuffer.h"
+#include "Buffers/VertexBufferLayout.h"
 #include "Buffers/IndexBuffer.h"
 #include "VertexArray.h"
+#include "Shaders/Shaders.h"
+#include "Renderer/Render.h"
 
 #ifdef _DEBUG
 #define CHECKERROR() CheckError()
@@ -81,21 +83,8 @@ int main(void)
 
     IndexBuffer indexBuffer(indices, 6);
 
-    vertexArray.Bind();
-    indexBuffer.Bind();
-
     Shaders shader("./Shaders/src/vertex.shader", "./Shaders/src/fragment.shader");
-    shader.Bind();
-    unsigned int shaderId = shader.GetShader();
-
-
-    CLEARERROR();
-    glUseProgram(shaderId);
-    CHECKERROR();
-
-    CLEARERROR();
-    shader.SetUniform4f("u_Color", 0.2f, 0.3f, 0.8f, 1.0f);
-    CHECKERROR();
+    Renderer renderer;    
 
     float red, green, blue, redincrement, greenincrement, blueincrement;
     red = 0.0f;
@@ -104,6 +93,8 @@ int main(void)
     redincrement = +0.5f;
     greenincrement = +0.5f;
     blueincrement = -0.5f;
+
+    renderer.Draw(vertexArray, indexBuffer, shader, red, green, blue);
 
     /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(window))
@@ -126,16 +117,8 @@ int main(void)
 
         LOG(red << ", " << green << ", " << blue);
 
-        vertexArray.Bind();
-        indexBuffer.Bind();
-        shader.Bind();
-        shader.Bind();
-        shader.SetUniform4f("u_Color", red, green, blue, 1.0f);
-
-        CLEARERROR();
-        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
-        CHECKERROR();
-
+        renderer.Draw(vertexArray, indexBuffer, shader, red, green, blue);
+        
         /* Swap front and back buffers */
         glfwSwapBuffers(window);
 

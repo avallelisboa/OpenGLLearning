@@ -159,6 +159,8 @@
     <ClCompile Include="Shaders\Shaders.cpp" />
     <ClCompile Include="FileTools.cpp" />
     <ClCompile Include="Buffers\VertexBuffer.cpp" />
+    <ClCompile Include="Textures\Texture.cpp" />
+    <ClCompile Include="Vendor\stb_image\stb_image.cpp" />
     <ClCompile Include="VertexArray.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -168,6 +170,8 @@
     <ClInclude Include="Shaders\Shaders.h" />
     <ClInclude Include="FileTools.h" />
     <ClInclude Include="Buffers\VertexBuffer.h" />
+    <ClInclude Include="Textures\Texture.h" />
+    <ClInclude Include="Vendor\stb_image\stb_image.h" />
     <ClInclude Include="VertexArray.h" />
   </ItemGroup>
   <ItemGroup>

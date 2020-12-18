@@ -40,6 +40,6 @@ class Shaders
 		void Unbind() const;
 
 		int GetUniformLocation(const char* name) const;
-		void SetUniform4f(const char* name, float v0, float v1, float f2, float f3);
+		void SetUniform4f(const char* name, float v0, float v1, float f2, float f3) const;
 };
 
