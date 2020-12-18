@@ -81,15 +81,20 @@ int main(void)
 
     IndexBuffer indexBuffer(indices, 6);
 
+    vertexArray.Bind();
+    indexBuffer.Bind();
+
     Shaders shader("./Shaders/src/vertex.shader", "./Shaders/src/fragment.shader");
+    shader.Bind();
     unsigned int shaderId = shader.GetShader();
+
 
     CLEARERROR();
     glUseProgram(shaderId);
     CHECKERROR();
 
     CLEARERROR();
-    int uniformLocation = glGetUniformLocation(shaderId, "u_Color");
+    shader.SetUniform4f("u_Color", 0.2f, 0.3f, 0.8f, 1.0f);
     CHECKERROR();
 
     float red, green, blue, redincrement, greenincrement, blueincrement;
@@ -99,10 +104,6 @@ int main(void)
     redincrement = +0.5f;
     greenincrement = +0.5f;
     blueincrement = -0.5f;
-
-    CLEARERROR();
-    glUniform4f(uniformLocation, 0.2f, 0.3f, 0.8f, 1.0f);
-    CHECKERROR();
 
     /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(window))
@@ -125,10 +126,11 @@ int main(void)
 
         LOG(red << ", " << green << ", " << blue);
 
-        glUseProgram(shaderId);
-        glUniform4f(uniformLocation, red, green, blue, 1.0f);
         vertexArray.Bind();
         indexBuffer.Bind();
+        shader.Bind();
+        shader.Bind();
+        shader.SetUniform4f("u_Color", red, green, blue, 1.0f);
 
         CLEARERROR();
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);

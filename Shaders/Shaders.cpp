@@ -1,7 +1,6 @@
 #include "Shaders.h"
 
-void Shaders::Load(const char* vertexShaderPath, const char* fragmentShaderPath)
-{
+void Shaders::Load(const char* vertexShaderPath, const char* fragmentShaderPath){
 	FileTools vertex;
 	FileTools fragment;
 	
@@ -16,11 +15,9 @@ void Shaders::Load(const char* vertexShaderPath, const char* fragmentShaderPath)
     }
 
     CreateShader();
-
 }
 
-unsigned int Shaders::CompileShader(unsigned int type, const char* source)
-{
+unsigned int Shaders::CompileShader(unsigned int type, const char* source){
     unsigned int id = glCreateShader(type);
     glShaderSource(id, 1, &source, nullptr);
     glCompileShader(id);
@@ -45,34 +42,53 @@ unsigned int Shaders::CompileShader(unsigned int type, const char* source)
     return id;
 }
 
-void Shaders::CreateShader()
-{
+void Shaders::CreateShader(){
     //Defines a shader and gets the shader Id
-    unsigned int program = glCreateProgram();
+    m_Shader = glCreateProgram();
 
     //Compiles the shaders
-    unsigned int vs = CompileShader(GL_VERTEX_SHADER, m_vertexShaderSource);
-    unsigned int fs = CompileShader(GL_FRAGMENT_SHADER, m_fragmentShaderSource);
-
-    //Attaches vertex shader
-    glAttachShader(program, vs);
-    //Attaches fragment shader
-    glAttachShader(program, fs);
-    //Links Shader
-    glLinkProgram(program);
-    //Validates the shader is correct
-    glValidateProgram(program);
-    //Deletes the intermediate shader files
-    glDeleteShader(vs);
-    glDeleteShader(fs);
-
-    m_Shader = program;
+    m_VertexShader = CompileShader(GL_VERTEX_SHADER, m_vertexShaderSource);
+    m_FragmentShader = CompileShader(GL_FRAGMENT_SHADER, m_fragmentShaderSource);
 }
 
-Shaders::Shaders(const char* vertexShaderPath, const char* fragmentShaderPath){Load(vertexShaderPath, fragmentShaderPath);}
+Shaders::Shaders(const char* vertexShaderPath, const char* fragmentShaderPath):m_RendererID(0){
+    Load(vertexShaderPath, fragmentShaderPath);
+}
 
-Shaders::~Shaders()
-{
+Shaders::~Shaders(){
 	free((void*)m_vertexShaderSource);
 	free((void*)m_fragmentShaderSource);
+
+    Unbind();
+    glDeleteProgram(m_Shader);
+}
+
+void Shaders::Bind() const{
+    //Attaches vertex shader
+    glAttachShader(m_Shader, m_VertexShader);
+    //Attaches fragment shader
+    glAttachShader(m_Shader, m_FragmentShader);
+    //Links Shader
+    glLinkProgram(m_Shader);
+    //Validates the shader is correct
+    glValidateProgram(m_Shader);
+    //Deletes the intermediate shader files
+    glDeleteShader(m_VertexShader);
+    glDeleteShader(m_FragmentShader);
+}
+
+void Shaders::Unbind() const{
+    glUseProgram(0);
+}
+
+int Shaders::GetUniformLocation(const char* name) const{
+    int location = glGetUniformLocation(m_Shader, name);
+    if (location == -1) {
+        LOG("Error: The uniform" << name << "does not exist!");
+        return location;
+    }
+}
+
+void Shaders::SetUniform4f(const char* name, float v0, float v1, float f2, float f3){
+    glUniform4f(GetUniformLocation(name), v0, v1, f2, f3);
 }

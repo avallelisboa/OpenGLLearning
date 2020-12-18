@@ -1,0 +1,15 @@
+﻿  IndexBuffer.cpp
+C:\Users\Andrés\OneDrive\Documents\AVL\Code\GL\OpenGLLearning\Renderer\Render.h(8,10): fatal error C1083: No se puede abrir el archivo incluir: 'glew.h': No such file or directory
+  main.cpp
+C:\Users\Andrés\OneDrive\Documents\AVL\Code\GL\OpenGLLearning\main.cpp(11,10): fatal error C1083: No se puede abrir el archivo incluir: 'glew.h': No such file or directory
+  Render.cpp
+C:\Users\Andrés\OneDrive\Documents\AVL\Code\GL\OpenGLLearning\Renderer\Render.h(8,10): fatal error C1083: No se puede abrir el archivo incluir: 'glew.h': No such file or directory
+  Shaders.cpp
+C:\Users\Andrés\OneDrive\Documents\AVL\Code\GL\OpenGLLearning\Shaders\Shaders.h(14,10): fatal error C1083: No se puede abrir el archivo incluir: 'glew.h': No such file or directory
+  FileTools.cpp
+C:\Users\Andrés\OneDrive\Documents\AVL\Code\GL\OpenGLLearning\FileTools.cpp(5,15): error C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  VertexBuffer.cpp
+C:\Users\Andrés\OneDrive\Documents\AVL\Code\GL\OpenGLLearning\Renderer\Render.h(8,10): fatal error C1083: No se puede abrir el archivo incluir: 'glew.h': No such file or directory
+  VertexArray.cpp
+C:\Users\Andrés\OneDrive\Documents\AVL\Code\GL\OpenGLLearning\Buffers\VertexBufferLayout.h(4,9): fatal error C1083: No se puede abrir el archivo incluir: 'glew.h': No such file or directory
+  Generando código...

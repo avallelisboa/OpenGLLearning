@@ -1,4 +1,3 @@
-﻿  VertexArray.cpp
-  main.cpp
-  Generating Code...
-  OpenGLLearning.vcxproj -> C:\Users\avall\Documents\Andrés\Programación\Code\OpenGL\OpenGLLearning\Debug\OpenGLLearning.exe
+﻿  Shaders.cpp
+C:\Users\Andrés\OneDrive\Documents\AVL\Code\GL\OpenGLLearning\Shaders\Shaders.cpp(89): warning C4715: 'Shaders::GetUniformLocation': no todas las rutas de acceso de control devuelven un valor
+  OpenGLLearning.vcxproj -> C:\Users\Andrés\OneDrive\Documents\AVL\Code\GL\OpenGLLearning\Debug\OpenGLLearning.exe

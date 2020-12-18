@@ -18,8 +18,13 @@
 class Shaders
 {
 	private:
+		unsigned int m_RendererID;
+
 		const char* m_vertexShaderSource;
 		const char* m_fragmentShaderSource;
+
+		unsigned int m_VertexShader;
+		unsigned int m_FragmentShader;
 		unsigned int m_Shader;
 
 		void Load(const char* vertexShaderPath, const char* fragmentShaderPath);
@@ -30,5 +35,11 @@ class Shaders
 
 		Shaders(const char* vertexShaderPath, const char* fragmentShaderPath);
 		~Shaders();
+
+		void Bind() const;
+		void Unbind() const;
+
+		int GetUniformLocation(const char* name) const;
+		void SetUniform4f(const char* name, float v0, float v1, float f2, float f3);
 };
 
