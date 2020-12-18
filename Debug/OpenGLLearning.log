@@ -1,2 +1,34 @@
 ﻿  IndexBuffer.cpp
+  main.cpp
+  Render.cpp
+C:\Users\Andrés\OneDrive\Documents\AVL\Code\GL\OpenGLLearning\Renderer\Render.cpp(5,1): warning C4005: 'CHECKERROR': redefinición de macro
+C:\Users\Andrés\OneDrive\Documents\AVL\Code\GL\OpenGLLearning\Renderer\Render.h(16): message : vea la definición anterior de 'CHECKERROR'
+C:\Users\Andrés\OneDrive\Documents\AVL\Code\GL\OpenGLLearning\Renderer\Render.cpp(6,1): warning C4005: 'CLEARERROR': redefinición de macro
+C:\Users\Andrés\OneDrive\Documents\AVL\Code\GL\OpenGLLearning\Renderer\Render.h(17): message : vea la definición anterior de 'CLEARERROR'
+  Shaders.cpp
+  FileTools.cpp
+  VertexBuffer.cpp
+  Texture.cpp
+C:\Users\Andrés\OneDrive\Documents\AVL\Code\GL\OpenGLLearning\Textures\Texture.cpp(22,21): warning C4551: la llamada a la función no tiene lista de argumentos
+  stb_image.cpp
+  VertexArray.cpp
+  Generando código...
+C:\Users\Andrés\OneDrive\Documents\AVL\Code\GL\OpenGLLearning\Shaders\Shaders.cpp(92): warning C4715: 'Shaders::GetUniformLocation': no todas las rutas de acceso de control devuelven un valor
+LINK : warning LNK4098: la biblioteca predeterminada'MSVCRT' entra en conflicto con otras bibliotecas; use la biblioteca /NODEFAULTLIB:biblioteca
+LINK : warning LNK4098: la biblioteca predeterminada'LIBCMT' entra en conflicto con otras bibliotecas; use la biblioteca /NODEFAULTLIB:biblioteca
+LINK : warning LNK4217: "___glewBindBuffer" importa el símbolo "glew32s.lib(glew.obj)" definido en "IndexBuffer.obj" en la función ""public: __thiscall IndexBuffer::IndexBuffer(unsigned int const *,unsigned int)" (??0IndexBuffer@@QAE@PBII@Z)"
+LINK : warning LNK4217: "___glewBindBuffer" importa el símbolo "glew32s.lib(glew.obj)" definido en "VertexBuffer.obj" en la función "__ehhandler$??1VertexBuffer@@QAE@XZ"
+LINK : warning LNK4217: "___glewBufferData" importa el símbolo "glew32s.lib(glew.obj)" definido en "IndexBuffer.obj" en la función ""public: __thiscall IndexBuffer::IndexBuffer(unsigned int const *,unsigned int)" (??0IndexBuffer@@QAE@PBII@Z)"
+LINK : warning LNK4217: "___glewBufferData" importa el símbolo "glew32s.lib(glew.obj)" definido en "VertexBuffer.obj" en la función ""public: __thiscall VertexBuffer::VertexBuffer(void const *,unsigned int)" (??0VertexBuffer@@QAE@PBXI@Z)"
+LINK : warning LNK4217: "___glewDeleteBuffers" importa el símbolo "glew32s.lib(glew.obj)" definido en "IndexBuffer.obj" en la función ""public: __thiscall IndexBuffer::~IndexBuffer(void)" (??1IndexBuffer@@QAE@XZ)"
+LINK : warning LNK4217: "___glewDeleteBuffers" importa el símbolo "glew32s.lib(glew.obj)" definido en "VertexBuffer.obj" en la función ""public: __thiscall VertexBuffer::VertexBuffer(void const *,unsigned int)" (??0VertexBuffer@@QAE@PBXI@Z)"
+LINK : warning LNK4217: "___glewGenBuffers" importa el símbolo "glew32s.lib(glew.obj)" definido en "IndexBuffer.obj" en la función ""public: __thiscall IndexBuffer::IndexBuffer(unsigned int const *,unsigned int)" (??0IndexBuffer@@QAE@PBII@Z)"
+LINK : warning LNK4217: "___glewGenBuffers" importa el símbolo "glew32s.lib(glew.obj)" definido en "VertexBuffer.obj" en la función ""public: __thiscall VertexBuffer::~VertexBuffer(void)" (??1VertexBuffer@@QAE@XZ)"
+LINK : warning LNK4217: "___glewActiveTexture" importa el símbolo "glew32s.lib(glew.obj)" definido en "Texture.obj" en la función ""public: void __thiscall Texture::Bind(unsigned int)const " (?Bind@Texture@@QBEXI@Z)"
+LINK : warning LNK4217: "___glewEnableVertexAttribArray" importa el símbolo "glew32s.lib(glew.obj)" definido en "VertexArray.obj" en la función ""public: void __thiscall VertexArray::AddBuffer(class VertexBuffer const &,class VertexBufferLayout const &)const " (?AddBuffer@VertexArray@@QBEXABVVertexBuffer@@ABVVertexBufferLayout@@@Z)"
+LINK : warning LNK4217: "___glewVertexAttribPointer" importa el símbolo "glew32s.lib(glew.obj)" definido en "VertexArray.obj" en la función ""public: void __thiscall VertexArray::AddBuffer(class VertexBuffer const &,class VertexBufferLayout const &)const " (?AddBuffer@VertexArray@@QBEXABVVertexBuffer@@ABVVertexBufferLayout@@@Z)"
+LINK : warning LNK4217: "___glewBindVertexArray" importa el símbolo "glew32s.lib(glew.obj)" definido en "VertexArray.obj" en la función ""public: void __thiscall VertexArray::Bind(void)const " (?Bind@VertexArray@@QBEXXZ)"
+LINK : warning LNK4217: "___glewDeleteVertexArrays" importa el símbolo "glew32s.lib(glew.obj)" definido en "VertexArray.obj" en la función ""public: __thiscall VertexArray::~VertexArray(void)" (??1VertexArray@@QAE@XZ)"
+LINK : warning LNK4217: "___glewGenVertexArrays" importa el símbolo "glew32s.lib(glew.obj)" definido en "VertexArray.obj" en la función ""public: __thiscall VertexArray::VertexArray(void)" (??0VertexArray@@QAE@XZ)"
+glew32s.lib(glew.obj) : warning LNK4099: no se encontró PDB 'vc120.pdb' con 'glew32s.lib(glew.obj)' o en 'C:\Users\Andrés\OneDrive\Documents\AVL\Code\GL\OpenGLLearning\Debug\vc120.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
   OpenGLLearning.vcxproj -> C:\Users\Andrés\OneDrive\Documents\AVL\Code\GL\OpenGLLearning\Debug\OpenGLLearning.exe

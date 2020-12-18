@@ -86,9 +86,17 @@ void Shaders::Unbind() const{
 int Shaders::GetUniformLocation(const char* name) const{
     int location = glGetUniformLocation(m_Shader, name);
     if (location == -1) {
-        LOG("Error: The uniform" << name << "does not exist!");
+        LOG("Error: The uniform " << name << " does not exist!");
         return location;
     }
+}
+
+void Shaders::SetUniform1i(const char* name, int value) const{
+    glUniform1i(GetUniformLocation(name), value);
+}
+
+void Shaders::SetUniform1f(const char* name, float value) const{
+    glUniform1f(GetUniformLocation(name), value);
 }
 
 void Shaders::SetUniform4f(const char* name, float v0, float v1, float f2, float f3) const{

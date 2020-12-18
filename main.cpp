@@ -64,10 +64,10 @@ int main(void)
     }
 
     float positions[] = {
-        -0.5f, -0.5f,
-        0.5f, -0.5f,
-        0.5f, 0.5f,
-        -0.5f, 0.5f
+        -0.5f, -0.5f, 0.0f, 0.0f,
+        0.5f, -0.5f, 1.0f, 0.0f,
+        0.5f, 0.5f, 1.0f, 1.0f,
+        -0.5f, 0.5f, 0.0f, 1.0f
     };
 
     unsigned int indices[] = {
@@ -76,8 +76,9 @@ int main(void)
     };
 
     VertexArray vertexArray;
-    VertexBuffer vertexBuffer((const void*)positions, sizeof(float) * 4 * 2);
+    VertexBuffer vertexBuffer((const void*)positions, sizeof(float) * 4 * 4);
     VertexBufferLayout layout;
+    layout.Push<float>(2);
     layout.Push<float>(2);
     vertexArray.AddBuffer(vertexBuffer, layout);
 

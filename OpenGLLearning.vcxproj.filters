@@ -82,4 +82,9 @@
     <None Include="Shaders\src\vertex.shader" />
     <None Include="Shaders\src\fragment.shader" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="Textures\src\Obi-Wan.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
 </Project>
