@@ -87,8 +87,8 @@ int Shaders::GetUniformLocation(const char* name) const{
     int location = glGetUniformLocation(m_Shader, name);
     if (location == -1) {
         LOG("Error: The uniform " << name << " does not exist!");
-        return location;
     }
+    return location;
 }
 
 void Shaders::SetUniform1i(const char* name, int value) const{

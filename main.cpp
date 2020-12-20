@@ -75,6 +75,9 @@ int main(void)
         2, 3, 0
     };
 
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
     VertexArray vertexArray;
     VertexBuffer vertexBuffer((const void*)positions, sizeof(float) * 4 * 4);
     VertexBufferLayout layout;
@@ -91,11 +94,9 @@ int main(void)
     red = 0.0f;
     blue = 1.0f;
     green = 0.5f;
-    redincrement = +0.5f;
-    greenincrement = +0.5f;
-    blueincrement = -0.5f;
-
-    renderer.Draw(vertexArray, indexBuffer, shader, red, green, blue);
+    redincrement = 0.0f;
+    greenincrement = 0.0f;
+    blueincrement = 0.0f;
 
     /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(window))

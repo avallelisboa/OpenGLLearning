@@ -28,7 +28,7 @@ void Renderer::Draw(const VertexArray& va, const IndexBuffer& ib, const Shaders&
 	shader.Bind();
 	shader.SetUniform4f("u_Color", r, g, b, 1.0f);
 
-	Texture texture("../Textures/src/Obi-Wan.png");
+	Texture texture("Textures/src/Obi-Wan.png");
 	texture.Bind();
 
 	shader.SetUniform1i("u_Texture", 0);
