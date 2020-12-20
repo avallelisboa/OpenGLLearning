@@ -15,6 +15,8 @@
 #include <glfw3.h>
 #include "../FileTools.h"
 
+#include "glm/glm.hpp"
+
 class Shaders
 {
 	private:
@@ -27,6 +29,8 @@ class Shaders
 		unsigned int m_FragmentShader;
 		unsigned int m_Shader;
 
+		bool m_IsBound;
+
 		void Load(const char* vertexShaderPath, const char* fragmentShaderPath);
 		unsigned int CompileShader(unsigned int type, const char* source);
 		void CreateShader();
@@ -36,13 +40,16 @@ class Shaders
 		Shaders(const char* vertexShaderPath, const char* fragmentShaderPath);
 		~Shaders();
 
-		void Bind() const;
-		void Unbind() const;
+		void Bind();
+		void Unbind();
 
 		int GetUniformLocation(const char* name) const;
+		inline bool IsBound() const { return m_IsBound; }
 
-		void SetUniform1i(const char* name, int value) const;
-		void SetUniform1f(const char* name, float value) const;
-		void SetUniform4f(const char* name, float v0, float v1, float f2, float f3) const;
+		void SetUniform1i(const char* name, int value);
+		void SetUniform1f(const char* name, float value);
+		void SetUniform4f(const char* name, float v0, float v1, float f2, float f3);
+
+		void SetUniformMat4f(const char* name, const glm::mat4& matrix);
 };
 

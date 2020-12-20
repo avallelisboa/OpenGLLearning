@@ -11,6 +11,8 @@
 #include "../Buffers/IndexBuffer.h"
 #include "../Shaders/Shaders.h"
 
+#include "glm/glm.hpp"
+#include "glm/gtc/matrix_transform.hpp"
 
 #ifdef _DEBUG
 #define CHECKERROR() CheckError()
@@ -26,6 +28,6 @@ bool GlLogCall();
 
 class Renderer {
 public:
-	void Clear() const;
-	void Draw(const VertexArray& va, const IndexBuffer& ib, const Shaders& shader, float r, float g, float b) const;
+	void Clear();
+	void Draw(VertexArray& va, IndexBuffer& ib, Shaders& shader);
 };

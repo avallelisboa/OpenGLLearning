@@ -63,7 +63,7 @@ Shaders::~Shaders(){
     glDeleteProgram(m_Shader);
 }
 
-void Shaders::Bind() const{
+void Shaders::Bind(){
     //Attaches vertex shader
     glAttachShader(m_Shader, m_VertexShader);
     //Attaches fragment shader
@@ -77,10 +77,14 @@ void Shaders::Bind() const{
     glDeleteShader(m_FragmentShader);
     //Binds the shader
     glUseProgram(m_Shader);
+
+    m_IsBound = true;
 }
 
-void Shaders::Unbind() const{
+void Shaders::Unbind(){
     glUseProgram(0);
+
+    m_IsBound = false;
 }
 
 int Shaders::GetUniformLocation(const char* name) const{
@@ -91,14 +95,22 @@ int Shaders::GetUniformLocation(const char* name) const{
     return location;
 }
 
-void Shaders::SetUniform1i(const char* name, int value) const{
+void Shaders::SetUniform1i(const char* name, int value){
+    if (!m_IsBound) Bind();
     glUniform1i(GetUniformLocation(name), value);
 }
 
-void Shaders::SetUniform1f(const char* name, float value) const{
+void Shaders::SetUniform1f(const char* name, float value){
+    if (!m_IsBound) Bind();
     glUniform1f(GetUniformLocation(name), value);
 }
 
-void Shaders::SetUniform4f(const char* name, float v0, float v1, float f2, float f3) const{
+void Shaders::SetUniform4f(const char* name, float v0, float v1, float f2, float f3){
+    if (!m_IsBound) Bind();
     glUniform4f(GetUniformLocation(name), v0, v1, f2, f3);
+}
+
+void Shaders::SetUniformMat4f(const char* name, const glm::mat4& matrix){
+    if (!m_IsBound) Bind();
+    glUniformMatrix4fv(GetUniformLocation(name), 1, false, &matrix[0][0]);
 }
